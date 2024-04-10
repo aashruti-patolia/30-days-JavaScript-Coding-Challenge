@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snell's Law</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mediums">
+        <h2>Select Medium</h2>
+        <div class="medium" id="water" onclick="water()">
+            <img src="https://banner2.cleanpng.com/20180308/fae/kisspng-water-resources-ocean-sky-turquoise-pattern-blue-fresh-sea-5aa1604cb25303.3825257015205253887304.jpg"
+                style="width: 100%; height: 100%;" alt="">
+        </div>
+        <div class="medium" id="air" onclick="air()">
+            <img src="—Pngtree—cute cartoon blue clouds blowing_5952550.png" style="width: 100%; height: 100%;" alt="">
+        </div>
+        <div class="medium" id="kerosene" onclick="kerosene()">
+            <img src="https://png.pngtree.com/png-vector/20230414/ourmid/pngtree-kerosene-oil-vector-png-image_6704977.png"
+                style="width: 100%; height: 100%;" alt="">
+        </div>
+        <div class="medium" id="diamond" onclick="diamond()">
+            <img src="https://png.pngtree.com/png-vector/20230413/ourmid/pngtree-diamond-cartoon-shining-blue-precious-stone-logo-icon-vector-png-image_6703677.png"
+                style="width: 100%; height: 100%;" alt="">
+        </div>
+        <div class="medium" id="ethylAlcohol" onclick="ethylAlcohol()">
+            <img src="https://cdn-icons-png.flaticon.com/512/2927/2927426.png" alt=""
+                style="width: 100%; height: 100%;">
+        </div>
+
+    </div>
+    <div class="experiment">
+        <div class="inputBox">
+            <h2>Enter Angle of Incidence (in deg)</h2>
+            <input type="number" id="incidenceInput" max="90" min="0">
+            <button onclick="refraction()">Click here</button>
+        </div>
+        <div class="container">
+            <div class="medium1">
+                <div class="incidentLine i-fixed-end" id="incidentRay" style="transform: rotate(270deg);"></div>
+            </div>
+            <hr class="normal">
+            <div class="medium2" id="medium2">
+                <div class="reflectiveLine r-fixed-end" id="refractedRay" style="transform: rotate(-90deg);"></div>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+</html>

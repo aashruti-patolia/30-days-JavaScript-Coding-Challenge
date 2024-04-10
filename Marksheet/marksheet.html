@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Marks Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a2c51;
+        }
+
+        .container {
+            max-width: 500px;
+            height: auto;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+        .resultContainer {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Enter Subject Marks</h2>
+        <form id="marksForm">
+            <div class="form-group">
+                <label for="subject1"> Mathematics </label>
+                <input type="number" id="subject1" name="subject1" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="subject2"> English </label>
+                <input type="number" id="subject2" name="subject2" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="subject3"> History </label>
+                <input type="number" id="subject3" name="subject3" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="subject4"> Physics </label>
+                <input type="number" id="subject4" name="subject4" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="subject5"> Chemistry </label>
+                <input type="number" id="subject5" name="subject5" min="0" max="100" required>
+            </div>
+        </form>
+        <button type="submit" value="Submit" onclick="Result()" href="#marksheet">Show Result</button>
+    </div>
+    <div id="marksheet"></div>
+
+    <script>
+        function Result() {
+            var Mathematics = parseInt(document.getElementById('subject1').value);
+            var English = parseInt(document.getElementById('subject2').value);
+            var History = parseInt(document.getElementById('subject3').value);
+            var Physics = parseInt(document.getElementById('subject4').value);
+            var Chemistry = parseInt(document.getElementById('subject5').value);
+            let result = 'Pass';
+
+            let percentage = (Mathematics + English + History + Physics + Chemistry) / 5;
+            let total = Mathematics + English + History + Physics + Chemistry
+            // let grade = calculateGrade
+
+            if (Mathematics < 22 || English < 22 || History < 22 || Physics < 22 || Chemistry < 22) {
+                result = 'Fail';
+                percentage = 'NIL';
+            }
+
+            var MathematicsGrade = calculateGrade(Mathematics)
+            var EnglishGrade = calculateGrade(English)
+            var HistoryGrade = calculateGrade(History)
+            var PhysicsGrade = calculateGrade(Physics)
+            var ChemistryGrade = calculateGrade(Chemistry)
+
+            var MathematicsRemark = Remark(MathematicsGrade)
+            var EnglishRemark = Remark(EnglishGrade)
+            var HistoryRemark = Remark(HistoryGrade)
+            var PhysicsRemark = Remark(PhysicsGrade)
+            var ChemistryRemark = Remark(ChemistryGrade)
+
+
+
+            var marksheet = document.getElementById('marksheet');
+
+            marksheet.innerHTML = (`
+            <div class="resultContainer">
+                 <h2 class="text-center mb-4">Mark Sheet</h2>
+                <table>
+                 <thead>
+                     <tr>
+                        <th>Subjects</th>
+                        <th>Total Marks</th>
+                        <th>Marks Obtained</th>
+                        <th>Grade</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> Mathematics </td>
+                    <td>100</td>
+                    <td>${Mathematics}</td>
+                    <td>${MathematicsGrade}</td>
+                    <td>${MathematicsRemark}</td>
+                </tr>
+                 <tr>
+                    <td>English</td>
+                    <td>100</td>
+                    <td>${English}</td>
+                    <td>${EnglishGrade}</td>
+                    <td>${EnglishRemark}</td>
+                </tr>
+                <tr>
+                    <td>History</td>
+                    <td>100</td>
+                    <td>${History}</td>
+                    <td>${HistoryGrade}</td>
+                    <td>${HistoryRemark}</td>
+                 </tr>
+                <tr>
+                    <td>Physics</td>
+                    <td>100</td>
+                    <td>${Physics}</td>
+                    <td>${PhysicsGrade}</td>
+                    <td>${PhysicsRemark}</td>
+                </tr>
+                <tr>
+                    <td>Chemistry</td>
+                    <td>100</td>
+                    <td>${Chemistry}</td>
+                    <td>${ChemistryGrade}</td>
+                    <td>${ChemistryRemark}</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>500</td>
+                    <th>${total} / 500</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+        <div class="result">
+            <h3>Result: <u> ${result} </u>&nbsp; &nbsp; &nbsp; &nbsp;
+            Percentage: <u>${percentage} % </ul> </h3> <br>
+        </div>
+    </div>
+            `)
+
+
+        }
+
+        function calculateGrade(Subject) {
+
+            if (Subject >= 94) {
+                Grade = 'O';
+                return Grade
+            }
+
+            else if (Subject >= 86) {
+                Grade = 'A+'
+                return Grade;
+            }
+
+            else if (Subject >= 76) {
+                Grade = 'A';
+                return Grade
+            }
+
+            else if (Subject >= 66) {
+                Grade = 'B+'
+                return Grade;
+            }
+
+            else if (Subject >= 56) {
+                Grade = 'B';
+                return Grade
+            }
+
+            else if (Subject >= 46) {
+                Grade = 'C+'
+                return Grade;
+            }
+
+            else if (Subject >= 36) {
+                Grade = 'D';
+                return Grade
+            }
+
+            else if (Subject >= 23) {
+                Grade = 'E';
+                return Grade
+            }
+
+            else {
+                Grade = 'F';
+                return Grade
+            }
+        }
+
+        function Remark(Grade) {
+            if (Grade == 'O') {
+                var remark = 'Outstanding';
+                return remark;
+            }
+            else if (Grade == 'A+') {
+                var remark = 'Excellent';
+                return remark;
+            }
+            else if (Grade == 'A') {
+                var remark = 'Very Good';
+                return remark;
+            }
+            else if (Grade == 'B+') {
+                var remark = 'Good';
+                return remark;
+            }
+            else if (Grade == 'B') {
+                var remark = 'Above Average';
+                return remark;
+            }
+            else if (Grade == 'C+') {
+                var remark = 'Average';
+                return remark;
+            }
+            else if (Grade == 'D') {
+                var remark = 'Below Average';
+                return remark;
+            }
+            else if (Grade == 'E') {
+                var remark = 'Need Improvement';
+                return remark;
+            }
+            else if (Grade == 'F') {
+                var remark = 'Fail';
+                return remark;
+            }
+        }
+    </script>
+</body>
+
+</html>

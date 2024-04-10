@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*:not(i) {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.799), rgba(0, 0, 0, 0.838)), url(https://images.unsplash.com/photo-1453224424525-aeb893f2f1ca?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+}
+
+.container {
+    background-color: #ff204dea;
+    width: 90vmin;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 80px 50px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(4, 3, 10, 0.2);
+}
+
+.search-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-bottom: 3px solid #FF204E;
+    border-radius: 0px 5px 5px 0;
+}
+
+.search-box input {
+    padding: 5px;
+    width: 70%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.search-box button {
+    padding: 15px 0;
+    width: 25%;
+    background-color: #A0153E;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.result {
+    position: relative;
+}
+
+.result h3 {
+    font-size: 30px;
+    color: #F4BF96;
+}
+
+.result .word {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.result button {
+    background-color: transparent;
+    color: #B3A398;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.result .details {
+    display: flex;
+    gap: 10px;
+    color: #F8F0E5;
+    margin: 5px 0 20px 0;
+    font-size: 14px;
+}
+
+.word-meaning {
+    color: #F8F0E5;
+}
+
+.word-example {
+    color: #cccccc;
+    font-style: italic;
+    border-left: 5px solid #BBC3A4;
+    padding-left: 20px;
+    margin-top: 30px;
+}
+
+.error {
+    margin-top: 80px;
+    text-align: center;
+}

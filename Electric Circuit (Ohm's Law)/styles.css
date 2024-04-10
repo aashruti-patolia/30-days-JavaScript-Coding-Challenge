@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #35374B;
+}
+
+.resistorBox {
+    width: 20%;
+    height: 650px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 20px;
+    border-radius: 10px;
+    margin-top: -50px;
+    background-color: #50727B;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 3px;
+    color: antiquewhite;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.resistorInBox {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.resistorInBox img {
+    height: 80%;
+    width: min-content;
+    /* width: 100%; */
+}
+
+.resistorInBox p {
+    margin-top: -5px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #dbebf5;
+    font-size: 18px;
+}
+
+
+
+.circuit {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 1px dashed rgb(181, 180, 180);
+    position: relative;
+    /* overflow: hidden; */
+    /* border: 4px dashed black; */
+    margin: auto;
+    margin-top: 80px;
+}
+
+/* Keyframe animation for moving the dashed border */
+@keyframes moveBorder {
+    0% {
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+    }
+
+    25% {
+        border-top-width: 1px;
+        border-right-width: 5px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+    }
+
+    50% {
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 5px;
+        border-left-width: 1px;
+    }
+
+    75% {
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 5px;
+    }
+
+    100% {
+        border-top-width: 5px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+    }
+}
+
+
+.circuit.move {
+    animation: moveBorder 2s linear infinite;
+}
+
+/* Battery styles */
+.battery {
+    width: 60px;
+    height: 120px;
+    background-color: #aaa;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    bottom: -85%;
+    transform: rotate(270deg);
+    position: relative;
+
+}
+
+.battery-body {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.battery-cap {
+    width: 100%;
+    height: 10px;
+    background-color: #999;
+}
+
+.battery-cell {
+    width: 20px;
+    height: 40px;
+    background-color: #ff0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+}
+
+/* Voltmeter */
+.voltmeter {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border: 2px solid #999;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+}
+
+.display {
+    font-size: 20px;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Resistor */
+.resistor {
+    width: 150px;
+    height: 30px;
+    background-color: #777;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resistor img {
+    width: 100%;
+    height: 100%;
+}
+
+#resistorValue {
+    color: aliceblue;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 58%;
+}
+
+.circuit button {
+    position: absolute;
+    top: 50%;
+    right: -45px;
+    height: 50px;
+    width: 90px;
+    outline: 0;
+    border: 0;
+    transform: rotate(90deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #35374B;
+}
+
+.circuit button img {
+    margin: 0;
+    height: 150%;
+    width: 100%;
+}
+
+.bulb {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -70px;
+    left: 10%;
+}
+
+.bulb img {
+    width: 100%;
+    height: 100%;
+}
+
+#volt {
+    margin-left: 5px;
+    height: 30px;
+    width: 30px;
+    font-size: 18px;
+    color: #555;
+    background-color: transparent;
+    outline: 0;
+    border: 0px solid;
+    padding: 0%;
+}
+
+#volt::-webkit-outer-spin-button,
+#volt::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#current {
+    color: rgb(233, 67, 56);
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 100px;
+}

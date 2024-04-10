@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Circuit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="resistorBox">
+        <h1>Select the Resistor</h1>
+        <div class="resistorInBox" onclick="graphite()">
+            <img src="images/graphite.png" alt="">
+            <p>Graphite</p>
+        </div>
+        <div class="resistorInBox" onclick="gold()">
+            <img src="images/gold-bar.png" alt="">
+            <p>Gold</p>
+        </div>
+        <div class="resistorInBox" onclick="iron()">
+            <img src="images/iron-bar.png" alt="">
+            <p>Tungsten</p>
+        </div>
+        <div class="resistorInBox" onclick="water()">
+            <img src="images/water-can.png" alt="">
+            <p>Pure Water</p>
+        </div>
+    </div>
+
+    <div class="circuit">
+        <div class="battery">
+            <div class="battery-body">
+                <div class="battery-cap">+</div>
+                <div class="battery-cap"></div>
+                <div class="battery-cell"></div>
+            </div>
+        </div>
+        <div class="voltmeter">
+            <div class="display"> <input type="number" min="1" id="volt" value="110" oninput="calCurrent()">V</div>
+        </div>
+        <div class="bulb">
+            <img src="images/bulb-off.png" alt="">
+        </div>
+        <div class="resistor" id="resistor">
+            <img src="images/resistance.png" alt="">
+        </div>
+        <div id="resistorValue"></div>
+        <button onclick="circuitStatus()"><img src="images/switch-off.png" alt=""></button>
+    </div>
+
+    <div id="current"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

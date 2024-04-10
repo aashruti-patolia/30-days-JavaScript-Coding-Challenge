@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Dashed Border Clockwise</title>
+    <style>
+        /* Styles for the rectangular box */
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 2px dashed black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Keyframe animation for moving the dashed border */
+        @keyframes moveBorder {
+            0% {
+                border-top-width: 2px;
+                border-right-width: 2px;
+                border-bottom-width: 2px;
+                border-left-width: 2px;
+            }
+
+            25% {
+                border-top-width: 2px;
+                border-right-width: 6px;
+                border-bottom-width: 2px;
+                border-left-width: 2px;
+            }
+
+            50% {
+                border-top-width: 2px;
+                border-right-width: 2px;
+                border-bottom-width: 6px;
+                border-left-width: 2px;
+            }
+
+            75% {
+                border-top-width: 2px;
+                border-right-width: 2px;
+                border-bottom-width: 2px;
+                border-left-width: 6px;
+            }
+
+            100% {
+                border-top-width: 6px;
+                border-right-width: 2px;
+                border-bottom-width: 2px;
+                border-left-width: 2px;
+            }
+        }
+
+        /* Apply the animation to the box element */
+        .box.move {
+            animation: moveBorder 4s linear infinite;
+        }
+
+        /* Style for the button */
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+    <button onclick="moveBorder()">Move Border</button>
+
+    <script>
+        function moveBorder() {
+            var box = document.querySelector('.box');
+            box.classList.toggle('move');
+        }
+    </script>
+
+</body>
+
+</html>

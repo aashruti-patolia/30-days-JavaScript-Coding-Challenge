@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Serif+Display:ital@0;1&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-danger ms-5"
+                style=" font-family: 'Bangers', system-ui; font-weight: 400; font-style: normal; font-size: xx-large;">MARVEL</a>
+            <form class="d-flex me-5">
+                <input class="form-control me-2"
+                    style="width: 500px; height: 40px; border-radius: 50px;margin-top: 10px;" type="text"
+                    placeholder="Search" aria-label="Search" id="search" onkeyup="searchbar()">
+                <button class="btn btn-outline-danger mb-2" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <main class="container" id="card-container">
+        <section class="card">
+            <div class="product-image">
+                <img src="https://i.pinimg.com/originals/b3/85/25/b3852502392fb687c0c455933d9d3074.png"
+                    alt="OFF-white Red Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Spiderman</h2>
+                <p>Spider-Man Strikes Back, Spider-Man 2, Spider-Man 3, The Amazing Spider-Man, The Amazing Spider-Man
+                    2, Spider-Man: Homecoming</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://pngfre.com/wp-content/uploads/captain-america-png-from-pngfre-9-821x1024.png"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Captain America</h2>
+                <p>Captain America: First Avenger, Captain America: The Winter Soldier, Captain America: Civil War</p>
+
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://i.pinimg.com/originals/e2/7f/e5/e27fe5b06bc777a7832b9b9e8e5ce291.png"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Iron Man</h2>
+                <p>Iron Man, Iron Man 2, Iron Man 3, Avengers: Age of Ultron</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <h3 class="not-found" id="not" style="display: none">Not Found !</h3>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b188c950-e801-4079-8ede-f8cdac6f5b83/d59bwtp-3aca8845-d693-4e4d-9599-e49969d34d3b.png/v1/fill/w_900,h_1267/incredible_hulk__png_by_captainjackharkness_d59bwtp-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI2NyIsInBhdGgiOiJcL2ZcL2IxODhjOTUwLWU4MDEtNDA3OS04ZWRlLWY4Y2RhYzZmNWI4M1wvZDU5Ynd0cC0zYWNhODg0NS1kNjkzLTRlNGQtOTU5OS1lNDk5NjlkMzRkM2IucG5nIiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ua-ApAa7L6tqyZU099Ux-ObQyuUDvraPHQqN_0B9ZTI"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Hulk</h2>
+                <p>Hulk, The Incredible Hulk, The Avengers, Avengers: Age of Ultron, Avengers: Infinity War, Avengers:
+                    Endgame</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://pngfre.com/wp-content/uploads/Black-Panther-23-968x1024.png"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Black Panther</h2>
+                <p>Black Panther, Black Panther: Wakanda Forever</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/846a9086-8a40-43e0-aa10-2fc7d6d73730/dahhytf-7f302b6f-2dbc-41ee-99fa-1571452bf696.png/v1/fill/w_745,h_1073/dr__strange_character_png_by_mintmovi3_dahhytf-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQ3NSIsInBhdGgiOiJcL2ZcLzg0NmE5MDg2LThhNDAtNDNlMC1hYTEwLTJmYzdkNmQ3MzczMFwvZGFoaHl0Zi03ZjMwMmI2Zi0yZGJjLTQxZWUtOTlmYS0xNTcxNDUyYmY2OTYucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.eFgGgdm2Z8F1JrVIrlfKwd2pDzmAgT3xKT3uKn8EhZU"
+                    style="scale: 1.2;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Dr. Stephen Strange</h2>
+                <p>
+                    Doctor Strange: The Sorcerer Supreme,
+                    Doctor Strange in the Multiverse of Madness,
+                    Doctor Strange
+                </p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8911a890-1488-4033-b210-287b6a9c5319/dfa8nhb-37ef5c19-c660-46e9-9713-1676aff8d978.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg5MTFhODkwLTE0ODgtNDAzMy1iMjEwLTI4N2I2YTljNTMxOVwvZGZhOG5oYi0zN2VmNWMxOS1jNjYwLTQ2ZTktOTcxMy0xNjc2YWZmOGQ5NzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.N_HypUM84obULaIGSv_YRnFjkokTOga9pu2f0COqLN4"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Thor</h2>
+                <p>Thor 2011, Thor: Ragnarok, Thor: the dark world, Thor: Love and Thunder</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/75b06a7d-049e-4275-95f4-7e0814ef67de/da8l4dk-270cac67-b3e2-4390-bc09-af26a7e84f1d.png/v1/fill/w_800,h_931/loki_png_by_blutmondlicht_da8l4dk-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTMxIiwicGF0aCI6IlwvZlwvNzViMDZhN2QtMDQ5ZS00Mjc1LTk1ZjQtN2UwODE0ZWY2N2RlXC9kYThsNGRrLTI3MGNhYzY3LWIzZTItNDM5MC1iYzA5LWFmMjZhN2U4NGYxZC5wbmciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.AAFKt2FnEKiPbD-mDCtSUrbJRfeVKfPdxN8NN97ScdU"
+                    style="scale: 1.2;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Loki</h2>
+                <p>Loki</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://freepngimg.com/save/20693-black-widow-file/1828x1912" style="scale: 1.4;"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Black Widow</h2>
+                <p>Black Widow, All Avengers Movies</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8911a890-1488-4033-b210-287b6a9c5319/deo0df3-69bfa35d-73bb-4d65-8dec-5bd95e1e6118.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg5MTFhODkwLTE0ODgtNDAzMy1iMjEwLTI4N2I2YTljNTMxOVwvZGVvMGRmMy02OWJmYTM1ZC03M2JiLTRkNjUtOGRlYy01YmQ5NWUxZTYxMTgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.v8I9viWvPJLTbVDv8Na_q7x98ajb9Tz0dIqE9vZCEQE"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Hawkeye</h2>
+                <p> The Avengers, Avengers: Age of Ultron, Avengers: Infinity War, Avengers: End Game</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e14c32b-9b73-4351-b998-4ba095539837/de8grqg-3d806f54-3f5d-4c53-b4fe-3bb0a5686450.png/v1/fit/w_828,h_1472/scarlet_witch_png_by_stark3879_de8grqg-414w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjA0OCIsInBhdGgiOiJcL2ZcLzNlMTRjMzJiLTliNzMtNDM1MS1iOTk4LTRiYTA5NTUzOTgzN1wvZGU4Z3JxZy0zZDgwNmY1NC0zZjVkLTRjNTMtYjRmZS0zYmIwYTU2ODY0NTAucG5nIiwid2lkdGgiOiI8PTExNTIifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.qyxdOY3cfGX1eCWJPgFCA6dHJ3PMtUXi7I_xf7B2p58"
+                    style="scale: 1.2;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Scarlet Witch</h2>
+                <p>Doctor Strange in the Multiverse of Madness, Captain America : Civil War</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://pngfre.com/wp-content/uploads/Ant-Man-6-558x1024.png" style="scale: 1.3;"
+                    alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Ant-Man</h2>
+                <p>Ant-Man, Ant-Man and the Wasp: Quantumania, Ant-Man and the Wasp</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b8d2b12-21e8-4931-8a6d-fb9ecdd60383/dc5rnql-64a1c380-2f21-4b72-b9b8-c6bb7eced83e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzViOGQyYjEyLTIxZTgtNDkzMS04YTZkLWZiOWVjZGQ2MDM4M1wvZGM1cm5xbC02NGExYzM4MC0yZjIxLTRiNzItYjliOC1jNmJiN2VjZWQ4M2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5l6U4kjNaKqZ4LYLhO00Yanr27iGECwUfUfYkZs71sY"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Gamora </h2>
+                <p>Guardians of Galaxy, Avengers: Infinity War, Avengers: Endgame</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e14c32b-9b73-4351-b998-4ba095539837/dbv28i2-378ef7b3-996a-4597-93e8-8f048f4951ff.png/v1/fill/w_1024,h_1835/infinity_war_nick_fury_png_by_stark3879_dbv28i2-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgzNSIsInBhdGgiOiJcL2ZcLzNlMTRjMzJiLTliNzMtNDM1MS1iOTk4LTRiYTA5NTUzOTgzN1wvZGJ2MjhpMi0zNzhlZjdiMy05OTZhLTQ1OTctOTNlOC04ZjA0OGY0OTUxZmYucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.oIVpHguadcrN1JpYyxu1IVlnEe_gy-RT66xjeg1LunY"
+                    style="scale: 1.2;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Nick Fury</h2>
+                <p>Captain Marvel, All Iron Man Movies, Thor, Captain America, All Avengers Movies</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b8d2b12-21e8-4931-8a6d-fb9ecdd60383/depf5t5-2bbb4291-610f-4c8f-933e-161e4261ccb2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzViOGQyYjEyLTIxZTgtNDkzMS04YTZkLWZiOWVjZGQ2MDM4M1wvZGVwZjV0NS0yYmJiNDI5MS02MTBmLTRjOGYtOTMzZS0xNjFlNDI2MWNjYjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ef9Cm433eWRmI-9QSce5GEiWEHSkbD4XEuvsDn0pU38"
+                    style="scale: 1.3;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Daredevil</h2>
+                <p>
+                    Spider-Man And His Amazing Friends,
+                    Fantastic Four,
+                    Daredevil,
+                    Spider-Man: The Animated Series,
+                    MCU Daredevil</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8911a890-1488-4033-b210-287b6a9c5319/dfbj08t-90bbd561-bc20-47d1-855e-d89019ff6db5.png/v1/fit/w_828,h_828/star_lord__love_and_thunder____png__2__by_dhv123_dfbj08t-414w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzAwMCIsInBhdGgiOiJcL2ZcLzg5MTFhODkwLTE0ODgtNDAzMy1iMjEwLTI4N2I2YTljNTMxOVwvZGZiajA4dC05MGJiZDU2MS1iYzIwLTQ3ZDEtODU1ZS1kODkwMTlmZjZkYjUucG5nIiwid2lkdGgiOiI8PTMwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.k_brwLXlqu65Q5ouVCZ0AyN0YidVAZUrxstS3aJ_A9k"
+                    style="scale: 1.3;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Star Lord</h2>
+                <p>Guardians of the Galaxy, Avengers: Infinity War, Avengers: End Game</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/627fe721-846f-4f75-ac61-111ca00b27dd/dd6a8uz-14e80779-b8f6-4eac-914a-77f0c2474192.png/v1/fill/w_1280,h_1949/nebula___avengers_end_game__render__by_alanmac95_dd6a8uz-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk0OSIsInBhdGgiOiJcL2ZcLzYyN2ZlNzIxLTg0NmYtNGY3NS1hYzYxLTExMWNhMDBiMjdkZFwvZGQ2YTh1ei0xNGU4MDc3OS1iOGY2LTRlYWMtOTE0YS03N2YwYzI0NzQxOTIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.zwHnuSYeuJH7H18BvO6AEDtjtbSlJMw5CdsMJlFG-WQ"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Nebula</h2>
+                <p>Guardians of the Galaxy, Avengers: Infinity War, Avengers: End Game</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/295fb76c-7179-4c70-a508-a1cce61a876f/dc5bssq-658949b6-151e-472f-8cf8-ea7cbf25b6a4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI5NWZiNzZjLTcxNzktNGM3MC1hNTA4LWExY2NlNjFhODc2ZlwvZGM1YnNzcS02NTg5NDliNi0xNTFlLTQ3MmYtOGNmOC1lYTdjYmYyNWI2YTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.qyMzSYVT3-SoVSpk2SldDtdi17QhgCLK0Q3R_3aUloY"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Rocket</h2>
+                <p>Guardians of the Galaxy, Avengers: Infinity War, Avengers: End Game</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://i.pinimg.com/originals/36/f9/0d/36f90d689955575ca0e92b4198c2ee93.png"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Shuri</h2>
+                <p>Black Panther, Black Panther: Wakanda Forever</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="card card-blue">
+            <div class="product-image">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/22533fb0-3db2-4d45-8675-4aaf09a2027b/dcf7xi7-0bae2361-1950-4fd8-b7cd-4bca9b80bf25.png/v1/fit/w_828,h_1102/valkyrie__thor_ragnarok_png_by_gasa979_dcf7xi7-414w-2x.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTEyMiIsInBhdGgiOiJcL2ZcLzIyNTMzZmIwLTNkYjItNGQ0NS04Njc1LTRhYWYwOWEyMDI3YlwvZGNmN3hpNy0wYmFlMjM2MS0xOTUwLTRmZDgtYjdjZC00YmNhOWI4MGJmMjUucG5nIiwid2lkdGgiOiI8PTg0MyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.czri9phpF60N5No6SVoD1PvyCZ_yAQfXFWKJZwD7XDg"
+                    style="scale: 1.4;" alt="OFF-white Blue Edition" draggable="false" />
+            </div>
+            <div class="product-info">
+                <h2>Valkyrie </h2>
+                <p>Loki</p>
+            </div>
+            <div class="btn">
+                <button class="fav">
+                    <i class="fa-solid fa-angles-up fa-2xl" style="color: #67a271;"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

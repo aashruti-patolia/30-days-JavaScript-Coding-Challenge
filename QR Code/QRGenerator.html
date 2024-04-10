@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+
+            background-color: #352F44;
+        }
+
+        .container {
+            margin: 150px auto;
+            height: fit-content;
+            width: 500px;
+            background-color: #FAF0E6;
+            padding: 10px;
+            text-align: center;
+            color: #5C5470;
+            border-radius: 10px;
+            box-shadow: 18px 18px #5C5470;
+        }
+
+        .container input {
+            outline: 0;
+            border: 1px solid #5C5470;
+            height: 30px;
+            width: 80%;
+            background-color: #FAF0E6;
+            color: #352F44;
+            padding-left: 15px;
+            font-size: large;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container button {
+            width: 40%;
+            margin: 20px;
+            background-color: #352F44;
+            color: #FAF0E6;
+            padding: 10px;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .meme {
+            height: 250px;
+            width: 300px;
+        }
+
+        .QR {
+            height: 250px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Enter Text or URL</h1>
+        <input type="text" id="inputText">
+        <div id="QRContainer">
+            <img src="" id="QRImg">
+        </div>
+        <button id="QRCode" onclick="GenerateQR()">Generate QR Code</button>
+        <button id="download" download="QR_Code.png">Download</button>
+    </div>
+    <script>
+        let QRContainer = document.getElementById('QRContainer')
+        let QRImg = document.getElementById('QRImg')
+        let inputText = document.getElementById('inputText')
+        let download = document.getElementById('download');
+
+        function GenerateQR() {
+            if (inputText.value != "") {
+                QRImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputText.value
+                QRImg.classList.add('QR');
+            }
+            else {
+                QRImg.src = "https://media.makeameme.org/created/oops-forgot-what.jpg";
+                QRImg.classList.add('meme');
+            }
+        }
+
+
+        download.addEventListener('click', () => {
+            let img = document.querySelector('.QRContainer img');
+            if (img !== null) {
+                let imgAttribute = img.getAttribute('src');
+                download.setAttribute("href", img.getAttribute('src', imgAttribute))
+            }
+            else {
+                download.setAttribute("href", `${document.querySelector('canvas').toDataURL()}`)
+            }
+        })
+    </script>
+</body>
+
+</html>

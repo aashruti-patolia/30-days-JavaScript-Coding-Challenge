@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 110vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #2B2A4C;
+  position: relative;
+
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  color: #e09d9d;
+}
+canvas {
+  border: 2px outset #000;
+  margin: 20px auto;
+  display: block;
+  background-color: #e09d9d;
+}
+
+.container {
+  width: 700px;
+  height: 200px;
+  margin: auto;
+  background-color: #FEFDED;
+  padding: 20px;
+  margin: auto;
+  position: relative;
+}
+
+h2 {
+  width: 100%;
+  color: #2B2A4C;
+}
+
+input{
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+  outline: 0;
+  border: 0;
+  color: #e09d9d;
+  background-color: #2B2A4C;
+  font-size: 20px;
+  padding-left: 9px;
+  border-radius: 10px;
+}
+
+label{
+  color: #2B2A4C;
+  font-weight: bold;
+}
+
+
+
+button {
+  width: 150px;
+  height: 50px;
+  color: #e09d9d;
+  background-color: #2B2A4C;
+  border-radius: 5px;
+  outline: 0;
+  font-size: 18px;
+  margin: auto;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.matrix{
+  height: 250px;
+  width: 400px;
+  margin-left: 20px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #FEFDED;
+  border-radius: 10px;
+  color: #2B2A4C;
+  position: absolute;
+  top: 40%;
+  left: 30px;
+}

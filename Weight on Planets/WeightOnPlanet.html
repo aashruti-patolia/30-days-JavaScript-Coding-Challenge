@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight On Each Planet</title>
+    <!-- Google Fontst -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: url('https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?cs=srgb&dl=pexels-instawalli-176851.jpg&fm=jpg');
+            background-size: cover;
+        }
+
+        .container {
+            margin: auto;
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            color: #F0EDCF;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2em;
+            font-weight: 600;
+        }
+
+        .info-box {
+            width: 100%;
+            background-color: #7f7c8269;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        input {
+            font-size: 1em;
+            width: 6.25em;
+            padding: 0.5em;
+            border: none;
+            outline: none;
+            background-color: #d7e4f7cb;
+            color: #312f2f;
+            border-radius: 3px;
+        }
+
+        button {
+            font-size: 1em;
+            display: block;
+            background-color: #45bfff;
+            color: #ffffff;
+            padding: 1em;
+            margin: 1em auto 2em auto;
+            border: none;
+            border-radius: 0.5em;
+            cursor: pointer;
+        }
+
+        #result {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6em;
+        }
+
+        .planet-box {
+            padding: 1em;
+            height: 350px;
+            width: 300px;
+            background-color: #172b5c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 0.5em;
+        }
+
+        .planet-box p span {
+            font-weight: lighter;
+        }
+
+        .planet-box img {
+            width: 90%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="info-box">
+            <h1>Your Weight On Each Planet of Our Solar System</h1>
+            <div class="input">
+                <label for="earthWeight">Enter Your Weight On Earth(kg):</label>
+                <input type="number" id="earthWeight" placeholder="Weight" />
+            </div>
+            <button onclick="calculateWeights()">Calculate Weights</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
+
+    <script>
+        //Gravitational acceleration on each planet (in m/s^2)
+        const gravitationalAccelerations = {
+            mercury: 3.7,
+            venus: 8.87,
+            earth: 9.81,
+            mars: 3.71,
+            jupiter: 24.79,
+            saturn: 10.44,
+            uranus: 8.69,
+            neptune: 11.15,
+        };
+
+        //Function to calculate weight on each planet
+        function calculateWeightOnPlanets(weightOnEarth) {
+            const weightsOnPlanets = {};
+            for (const planet in gravitationalAccelerations) {
+                const gravityOnPlanet = gravitationalAccelerations[planet];
+                const weightOnPlanet =
+                    (weightOnEarth * gravityOnPlanet) / gravitationalAccelerations.earth;
+                weightsOnPlanets[planet] = weightOnPlanet;
+            }
+            return weightsOnPlanets;
+        }
+
+        //Function to handle button click and display results
+        function calculateWeights() {
+            const earthWeightInput = document.getElementById("earthWeight");
+            const resultDiv = document.getElementById("result");
+
+            const weightOnEarth = parseFloat(earthWeightInput.value);
+
+            if (!isNaN(weightOnEarth)) {
+                const weightsOnPlanets = calculateWeightOnPlanets(weightOnEarth);
+                let resultText = ``;
+                for (const planet in weightsOnPlanets) {
+                    resultText += `<div class="planet-box">
+                                    <img src=${planet}.png>
+                                     <p><span>${planet.charAt(0).toUpperCase() + planet.slice(1)
+                        }</span><br>${weightsOnPlanets[planet].toFixed(2)}kg</p>
+                    </div>`;
+                }
+                resultDiv.innerHTML = resultText;
+            } else {
+                resultDiv.innerHTML = "<p>Please enter a valid weight.</p>";
+            }
+        }
+    </script>
+</body>
+
+</html>

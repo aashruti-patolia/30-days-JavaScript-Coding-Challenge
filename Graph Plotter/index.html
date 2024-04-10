@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straight Line Plotter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Straight Line Plotter</h1>
+
+    <div class="container">
+        <h2>Enter Coordinates: &nbsp; </h2><br><br>
+        <label for="x1">X1:</label>
+        <input type="number" id="x1" name="x1"> &nbsp; &nbsp;
+
+        <label for="y1">Y1:</label>
+        <input type="number" id="y1" name="y1"><br>
+        <label for="x2">X2:</label>
+        <input type="number" id="x2" name="x2"> &nbsp; &nbsp;
+        <label for="y2">Y2:</label>
+        <input type="number" id="y2" name="y2"><br> <br>
+        <button onclick="plotLine()">Plot Line</button>
+    </div>
+
+    <canvas id="graphCanvas" width="500" height="500"></canvas>
+    <div class="matrix">
+        <h2>Matrix: </h2>
+        <div id="slope"></div>
+        <div id="x1y1"></div>
+        <div id="x2y2"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

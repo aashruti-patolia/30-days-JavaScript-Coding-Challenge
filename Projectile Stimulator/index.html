@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectile Motion Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Projectile Motion</h1>
+  <center>
+    <div class="inputBox">
+      <p>Enter Launch Velocity(in m/s): </p>
+      <input type="number" id="velocity" max="100" min="0">
+      <p>Enter Launch Angle (in degrees): </p>
+      <input type="number" max="90" min="0" id="angle">
+
+      <button onclick="startSimulation()">Start Simulation</button>
+    </div>
+  </center>
+
+
+  <canvas id="canvas" width="1200" height="500"></canvas>
+
+  <div id="counter"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

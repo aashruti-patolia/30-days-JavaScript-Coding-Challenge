@@ -1,0 +1,167 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --dark-color-lighten: #7a7b80;
+    --red-card: #323030;
+    --blue-card: #323030;
+    --btn: #141414;
+    --btn-hover: #3a3a3a;
+    --text: #fbf7f7;
+}
+
+/*===== RESET =====*/
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--dark-color-lighten);
+    font-family: "Montserrat", sans-serif;
+}
+
+button {
+    font-family: "Montserrat", sans-serif;
+    display: inline-block;
+    border: none;
+    outline: none;
+    border-radius: 0.2rem;
+    color: var(--text);
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+/*===== CARD =====*/
+.container {
+    height: auto;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.card {
+    position: relative;
+    padding: 1rem;
+    width: 350px;
+    height: 450px;
+    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+    border-radius: 0.9rem;
+    background-color: var(--red-card);
+    color: var(--text);
+    cursor: pointer;
+    margin-bottom: 80px;
+}
+
+.card-blue {
+    background: var(--blue-card);
+}
+
+.product-image {
+    height: 230px;
+    width: 100%;
+    text-align: center;
+    transform: translate(0, -1.5rem);
+    transition: transform 500ms ease-in-out;
+    filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+}
+
+.product-info {
+    text-align: center;
+}
+
+.card:hover .product-image {
+    transform: translate(0rem, -5rem) scale(1.3);
+}
+
+.product-info h2 {
+    margin-top: 15px;
+    font-size: 1.7rem;
+    /* font-weight: 600; */
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #EA5455;
+}
+
+.product-info p {
+    margin: 0.4rem;
+    font-size: 0.9rem;
+    font-family: "Unna", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.8rem;
+}
+
+.buy-btn {
+    background-color: var(--btn);
+    padding: 0.6rem 3.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 300ms ease;
+}
+
+.buy-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.fav {
+    box-sizing: border-box;
+    background: none;
+    margin-top: 20px;
+    padding: 0.5rem 0.5rem;
+    border: 0px solid#000;
+    display: grid;
+    place-items: center;
+}
+
+
+/* .fav:hover .svg {
+    fill: #000;
+} */
+
+@media screen and (max-width: 800px) {
+    body {
+        height: auto;
+    }
+
+    .container {
+        padding: 2rem 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
