@@ -5,6 +5,7 @@ const phone = document.getElementById('phone');
 const message = document.getElementById('message');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const required = document.getElementById('required')
 
 
 username.addEventListener('input', e => {
@@ -60,7 +61,7 @@ message.addEventListener('input', e => {
     const messageValue = message.value.trim();
 
     if (messageValue === '') {
-        setError(phone, 'Message is required and must have 30 character');
+        setError(message, 'Message is required and must have 30 character');
     }
     else if (messageValue.length < 20) {
         setError(message, `${20 - messageValue.length} characters are required`);
@@ -123,7 +124,46 @@ const isValidEmail = email => {
 }
 
 function isDigit(value) {
-    return !isNaN(value) && parseInt(value) === value;
+    return !isNaN(value) && parseInt(value) == value;
 }
 
+function checkValidation() {
+    if (username.value == '' || email.value == '' || phone.value == '' || message.value == '' || password.value == '' || password2.value == '') {
+        setError(required, 'All fields is required');
+        return false;
+    }
+
+    //password
+    else if (password.value !== password2.value) {
+        return false;
+    }
+
+    else if (password.value.length < 8) {
+        return false;
+    }
+
+    //email
+
+    else if (!isValidEmail(email.value)) {
+        return false;
+    }
+
+    //message
+    else if (message.value.length < 20) {
+        return false;
+    }
+
+    //phone no
+
+    else if (!isDigit(phone.value)) {
+        return false;
+    }
+    else if (phone.value.length < 10) {
+        return false;
+    }
+
+    else {
+        return true;
+    }
+}
 

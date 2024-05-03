@@ -37,7 +37,7 @@
         }
 
         .container button {
-            width: 40%;
+            width: 95%;
             margin: 20px;
             background-color: #352F44;
             color: #FAF0E6;
@@ -66,7 +66,6 @@
             <img src="" id="QRImg">
         </div>
         <button id="QRCode" onclick="GenerateQR()">Generate QR Code</button>
-        <button id="download" download="QR_Code.png">Download</button>
     </div>
     <script>
         let QRContainer = document.getElementById('QRContainer')
@@ -85,17 +84,6 @@
             }
         }
 
-
-        download.addEventListener('click', () => {
-            let img = document.querySelector('.QRContainer img');
-            if (img !== null) {
-                let imgAttribute = img.getAttribute('src');
-                download.setAttribute("href", img.getAttribute('src', imgAttribute))
-            }
-            else {
-                download.setAttribute("href", `${document.querySelector('canvas').toDataURL()}`)
-            }
-        })
     </script>
 </body>
 
